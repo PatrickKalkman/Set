@@ -14,6 +14,8 @@
 		AB1BFAA62010F1E200C56794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1BFAA42010F1E200C56794 /* LaunchScreen.storyboard */; };
 		AB6E2B3920121D510046B390 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E2B3820121D510046B390 /* SetGame.swift */; };
 		ABB9FC6E201227A4001445EF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9FC6D201227A4001445EF /* IntExtensions.swift */; };
+		ABB9FC7020126BD5001445EF /* ButtonRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9FC6F20126BD5001445EF /* ButtonRender.swift */; };
+		ABB9FC7220126FD7001445EF /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9FC7120126FD7001445EF /* ButtonExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		AB1BFAA72010F1E200C56794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6E2B3820121D510046B390 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		ABB9FC6D201227A4001445EF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		ABB9FC6F20126BD5001445EF /* ButtonRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRender.swift; sourceTree = "<group>"; };
+		ABB9FC7120126FD7001445EF /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				AB1BFAA72010F1E200C56794 /* Info.plist */,
 				AB6E2B3820121D510046B390 /* SetGame.swift */,
 				ABB9FC6D201227A4001445EF /* IntExtensions.swift */,
+				ABB9FC6F20126BD5001445EF /* ButtonRender.swift */,
+				ABB9FC7120126FD7001445EF /* ButtonExtensions.swift */,
 			);
 			path = set;
 			sourceTree = "<group>";
@@ -145,6 +151,8 @@
 				AB1BFA9E2010F1E200C56794 /* ViewController.swift in Sources */,
 				ABB9FC6E201227A4001445EF /* IntExtensions.swift in Sources */,
 				AB6E2B3920121D510046B390 /* SetGame.swift in Sources */,
+				ABB9FC7220126FD7001445EF /* ButtonExtensions.swift in Sources */,
+				ABB9FC7020126BD5001445EF /* ButtonRender.swift in Sources */,
 				AB1BFA9C2010F1E200C56794 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
