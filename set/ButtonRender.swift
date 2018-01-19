@@ -57,13 +57,13 @@ class ButtonRender {
             attributes[.foregroundColor] = color
         case .striped:
             attributes[.strokeWidth] = -1
-            attributes[.foregroundColor] = color.withAlphaComponent(0.15)
+            attributes[.foregroundColor] = color.withAlphaComponent(0.25)
         }
         
         return NSAttributedString(string: title, attributes: attributes)
     }
     
-    public static func renderCard(cardToRender card: Card, onButton: UIButton, selectButton: Bool) {
+    public static func renderCard(cardToRender card: Card, onButton: UIButton, selectButton: Bool, isSet: Bool) {
         
         onButton.isHidden = false
         let buttonColor = getColor(ofCard: card)
@@ -74,7 +74,11 @@ class ButtonRender {
         onButton.setAttributedTitle(attributedTitle, for: UIControlState.normal)
         
         if selectButton {
-            onButton.select()
+            if isSet {
+                onButton.select(borderColor: #colorLiteral(red: 0, green: 0.9810667634, blue: 0.5736914277, alpha: 1))
+            } else {
+                onButton.select()
+            }
         } else {
             onButton.deselect()
         }

@@ -15,9 +15,9 @@ extension UIButton {
         return self.layer.borderWidth == 4.0
     }
     
-    func select() {
+    func select(borderColor: UIColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)) {
         self.layer.borderWidth = 4.0
-        self.layer.borderColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
+        self.layer.borderColor = borderColor.cgColor
         self.layer.backgroundColor = #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
     }
     

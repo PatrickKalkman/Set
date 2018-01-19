@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         updateViewFromModel()
     }
 
-    
     @IBAction private func selectCard(_ sender: UIButton) {
         if let cardIndex = setCardButtons.index(of: sender) {
             setGame.select(card: setGame.cardsInGame[cardIndex])
@@ -36,11 +35,19 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func newGame() {
+        setGame.newGame()
+        updateViewFromModel()
+    }
+    
     private func updateViewFromModel() {
         var cardButtonIndex = 0
         for card in setGame.cardsInGame {
             let button = setCardButtons[cardButtonIndex]
-            ButtonRender.renderCard(cardToRender: card, onButton: button, selectButton: setGame.cardIsSelected(card: card))
+            ButtonRender.renderCard(cardToRender: card,
+                                    onButton: button,
+                                    selectButton: setGame.cardIsSelected(card: card),
+                                    isSet: setGame.isSet())
             cardButtonIndex += 1
         }
     }
