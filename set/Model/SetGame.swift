@@ -107,8 +107,28 @@ class SetGame {
     }
     
     func select(card: Card) {
-        if selectedCards.count == 3 {
-            selectedCards = [Card]()
+        if selectedCards.count == 3 && isSet() {
+            if let firstSelectedCardIndex = cardsInGame.index(of: selectedCards[0]) {
+                cardsInGame.remove(at: firstSelectedCardIndex)
+                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
+                cardsInGame.insert(selectedCard, at: firstSelectedCardIndex)
+            }
+            
+            if let secondSelectedCardIndex = cardsInGame.index(of: selectedCards[1]) {
+                cardsInGame.remove(at: secondSelectedCardIndex)
+                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
+                cardsInGame.insert(selectedCard, at: secondSelectedCardIndex)
+            }
+            
+            if let thirdSelectedCardIndex = cardsInGame.index(of: selectedCards[2]) {
+                cardsInGame.remove(at: thirdSelectedCardIndex)
+                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
+                cardsInGame.insert(selectedCard, at: thirdSelectedCardIndex)
+            }
+            
+            selectedCards.removeAll()
+        } else if selectedCards.count == 3 && !isSet() {
+            selectedCards.removeAll()
         }
         
         if let cardToSelect = selectedCards.index(of: card) {

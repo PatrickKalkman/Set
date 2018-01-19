@@ -12,11 +12,17 @@ class ViewController: UIViewController {
     
     @IBOutlet private var setCardButtons: [UIButton]!
     
+    @IBOutlet weak var dealThreeMoreCardsButton: UIButton!
+    
     let setGame = SetGame()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        resetButtons()
+        updateViewFromModel()
+    }
+    
+    func resetButtons() {
         for buttonIndex in setCardButtons.indices {
             let button = setCardButtons[buttonIndex]
             button.deselect()
@@ -24,8 +30,6 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = 10
             button.isHidden = true
         }
-        
-        updateViewFromModel()
     }
 
     @IBAction private func selectCard(_ sender: UIButton) {
@@ -36,8 +40,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func newGame() {
+        dealThreeMoreCardsButton.isEnabled = true
         setGame.newGame()
+        resetButtons()
         updateViewFromModel()
+    }
+    
+    @IBAction func addThreeNewCards() {
+        setGame.addCards(numberOfCardsToSelect: 3)
+        updateViewFromModel()
+        if setGame.cardsInGame.count >= 24 {
+            dealThreeMoreCardsButton.isEnabled = false
+        }
     }
     
     private func updateViewFromModel() {
