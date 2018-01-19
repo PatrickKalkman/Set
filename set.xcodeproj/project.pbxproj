@@ -13,6 +13,7 @@
 		AB1BFAA32010F1E200C56794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1BFAA22010F1E200C56794 /* Assets.xcassets */; };
 		AB1BFAA62010F1E200C56794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1BFAA42010F1E200C56794 /* LaunchScreen.storyboard */; };
 		AB6E2B3920121D510046B390 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E2B3820121D510046B390 /* SetGame.swift */; };
+		ABB9FC6E201227A4001445EF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB9FC6D201227A4001445EF /* IntExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AB1BFAA52010F1E200C56794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB1BFAA72010F1E200C56794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6E2B3820121D510046B390 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		ABB9FC6D201227A4001445EF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				AB1BFAA42010F1E200C56794 /* LaunchScreen.storyboard */,
 				AB1BFAA72010F1E200C56794 /* Info.plist */,
 				AB6E2B3820121D510046B390 /* SetGame.swift */,
+				ABB9FC6D201227A4001445EF /* IntExtensions.swift */,
 			);
 			path = set;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB1BFA9E2010F1E200C56794 /* ViewController.swift in Sources */,
+				ABB9FC6E201227A4001445EF /* IntExtensions.swift in Sources */,
 				AB6E2B3920121D510046B390 /* SetGame.swift in Sources */,
 				AB1BFA9C2010F1E200C56794 /* AppDelegate.swift in Sources */,
 			);

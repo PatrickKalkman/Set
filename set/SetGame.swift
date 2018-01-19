@@ -9,24 +9,44 @@
 import Foundation
 
 class SetGame {
-    var cards = [Card]()
+    var availableCards = [Card]()
+    var cardsInGame = [Card]()
     
     init() {
-        generateCards()
+        generateAllCardCombinations()
+        print("Generated \(availableCards.count) cards")
+        shuffleCards()
+        selectCards(numberOfCardsToSelect: 12)
+        print("Selected \(cardsInGame.count) cards")
     }
     
-    func generateCards() {
+    private func generateAllCardCombinations() {
         for color in CardColor.allValues {
             for symbol in CardSymbol.allValues {
                 for number in CardNumber.allValues {
                     for shading in CardShading.allValues {
                         let card = Card(cardColor: color, cardSymbol: symbol, cardNumber: number, cardShading: shading)
-                        cards.append(card)
+                        availableCards.append(card)
                     }
                 }
             }
         }
-        print("Generated \(cards.count) cards")
+    }
+    
+    func selectCards(numberOfCardsToSelect numberOfCards: Int) {
+        assert(numberOfCards <= availableCards.count, "SetGame.selectCards(numberOfCardss: \(numberOfCards)): number Of cards to select should be less or equal than the available cards")
+        for _ in 0..<numberOfCards {
+            selectCard()
+        }
+    }
+    
+    func shuffleCards() {
+        // TODO: implement shuffle cards
+    }
+    
+    private func selectCard() {
+        let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
+        cardsInGame.append(selectedCard)
     }
 }
 
