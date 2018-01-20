@@ -13,11 +13,14 @@ class SetGame {
     var cardsInGame = [Card]()
     var selectedCards = [Card]()
     
+    var score = 0
+    
     init() {
         newGame()
     }
     
     func newGame() {
+        score = 0
         availableCards.removeAll()
         cardsInGame.removeAll()
         selectedCards.removeAll()
@@ -47,7 +50,6 @@ class SetGame {
     }
     
     func addCards(numberOfCardsToSelect numberOfCards: Int) {
-        assert(numberOfCards <= availableCards.count, "SetGame.selectCards(numberOfCardss: \(numberOfCards)): number Of cards to select should be less or equal than the available cards")
         for _ in 0..<numberOfCards {
             addCard()
         }
@@ -108,40 +110,31 @@ class SetGame {
     
     func select(card: Card) {
         if selectedCards.count == 3 && isSet() {
-            if let firstSelectedCardIndex = cardsInGame.index(of: selectedCards[0]) {
-                cardsInGame.remove(at: firstSelectedCardIndex)
-                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
-                cardsInGame.insert(selectedCard, at: firstSelectedCardIndex)
+            selectedCards.forEach {
+                if let selectedCardInGameIndex = cardsInGame.index(of: $0) {
+                    cardsInGame.remove(at: selectedCardInGameIndex)
+                    if availableCards.count > 0 {
+                        let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
+                        cardsInGame.insert(selectedCard, at: selectedCardInGameIndex)
+                    }
+                }
             }
-            
-            if let secondSelectedCardIndex = cardsInGame.index(of: selectedCards[1]) {
-                cardsInGame.remove(at: secondSelectedCardIndex)
-                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
-                cardsInGame.insert(selectedCard, at: secondSelectedCardIndex)
-            }
-            
-            if let thirdSelectedCardIndex = cardsInGame.index(of: selectedCards[2]) {
-                cardsInGame.remove(at: thirdSelectedCardIndex)
-                let selectedCard = availableCards.remove(at: availableCards.count.arc4Random())
-                cardsInGame.insert(selectedCard, at: thirdSelectedCardIndex)
-            }
-            
             selectedCards.removeAll()
+            score += 3
         } else if selectedCards.count == 3 && !isSet() {
             selectedCards.removeAll()
+            score -= 1
         }
         
         if let cardToSelect = selectedCards.index(of: card) {
             // Card is already selected, so remove it from the selection
             selectedCards.remove(at: cardToSelect)
         } else {
-            //if let cardToSelect = cardsInGame.index(of: card) {
-                selectedCards.append(card)
-            //}
+            selectedCards.append(card)
         }
         
         print("Selected \(selectedCards.count) cards")
+        print("Cards available in deck \(availableCards.count) cards")
+        print("Cards in game \(cardsInGame.count) cards")
     }
 }
-
-

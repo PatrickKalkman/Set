@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet private var setCardButtons: [UIButton]!
-    
     @IBOutlet weak var dealThreeMoreCardsButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     let setGame = SetGame()
     
@@ -28,13 +28,17 @@ class ViewController: UIViewController {
             button.deselect()
             button.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
             button.layer.cornerRadius = 10
-            button.isHidden = true
+            button.backgroundColor = #colorLiteral(red: 1, green: 0.5768225789, blue: 0, alpha: 0)
+            button.layer.borderColor =  #colorLiteral(red: 1, green: 0.5768225789, blue: 0, alpha: 0)
+            button.setAttributedTitle(nil, for: UIControlState.normal)
         }
     }
 
     @IBAction private func selectCard(_ sender: UIButton) {
         if let cardIndex = setCardButtons.index(of: sender) {
-            setGame.select(card: setGame.cardsInGame[cardIndex])
+            if cardIndex < setGame.cardsInGame.count {
+                setGame.select(card: setGame.cardsInGame[cardIndex])
+            }
             updateViewFromModel()
         }
     }
@@ -56,6 +60,8 @@ class ViewController: UIViewController {
     
     private func updateViewFromModel() {
         var cardButtonIndex = 0
+        resetButtons()
+        scoreLabel.text = "Score: \(setGame.score)"
         for card in setGame.cardsInGame {
             let button = setCardButtons[cardButtonIndex]
             ButtonRender.renderCard(cardToRender: card,

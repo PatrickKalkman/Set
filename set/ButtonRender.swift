@@ -65,7 +65,6 @@ class ButtonRender {
     
     public static func renderCard(cardToRender card: Card, onButton: UIButton, selectButton: Bool, isSet: Bool) {
         
-        onButton.isHidden = false
         let buttonColor = getColor(ofCard: card)
         let cardSymbol = getSymbol(ofCard: card)
         let buttonTitle = getButtonTitle(ofCard: card, usingSymbol: cardSymbol)
